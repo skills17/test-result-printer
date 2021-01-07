@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "module": "esnext",
+    "lib": ["esnext"],
     "target": "ES2017",
     "esModuleInterop": true,
     "moduleResolution": "node",

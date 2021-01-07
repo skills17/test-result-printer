@@ -29,6 +29,7 @@
     "no-console": ["off"],
     "no-useless-constructor": ["off"],
     "no-shadow": ["off"],
+    "class-methods-use-this": ["off"],
     "@typescript-eslint/no-shadow": ["error"]
   }
 }
