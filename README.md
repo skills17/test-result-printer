@@ -1,5 +1,7 @@
 # skills17/test-result-printer
 
+<img src="https://cyrilwanner.github.io/packages/skills17/test-result-printer/assets/output-preview.png" align="center">
+
 Prints test results in a nice format to the console.
 
 ## Table of contents
