@@ -16,7 +16,7 @@ export default class Printer {
     printer?: (...data: string[]) => void;
     printHeader?: boolean;
     printFooter?: boolean;
-  }): void {
+  } = {}): void {
     // print header
     if (printHeader) {
       printer(bgGreen(black('------------       RESULT       ------------')));
