@@ -1,6 +1,6 @@
 {
   "name": "@skills17/test-result-printer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Prints test results in a nice format to the console.",
   "main": "lib/index.js",
   "files": [
