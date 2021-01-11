@@ -78,11 +78,12 @@ export default class Printer {
     if (printFooter) {
       printer(
         `\n${blue('Info:')}`,
-        'The detailed test and error information is visible above the result summary.\n',
+        'The detailed test and error information is visible above the result summary.',
       );
     }
 
     this.printWarnings(printer);
+    printer();
   }
 
   private printWarnings(printer: (...data: string[]) => void): void {
@@ -140,12 +141,11 @@ export default class Printer {
     tests: string[],
     printer: (...data: string[]) => void,
   ): void {
+    printer();
     printer(yellow('WARNING:', warning));
 
     tests.forEach((test) => {
       printer(`  - ${test}`);
     });
-
-    printer('');
   }
 }
