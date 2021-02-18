@@ -7,11 +7,11 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ Foo: ok
+    ✔ Foo
   BGroup::foo: 1/1 point
-    ✔ Foo: ok
+    ✔ Foo
   Last group: 1/1 point
-    ✔ Foo: ok
+    ✔ Foo
 
 Info: The detailed test and error information is visible above the result summary.
 `;

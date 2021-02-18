@@ -7,7 +7,7 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ Foo: ok
+    ✔ Foo
 
 WARNING: The following groups do not have any test:
   - B.+

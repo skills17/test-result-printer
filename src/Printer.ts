@@ -53,24 +53,22 @@ export default class Printer {
 
       // print all tests of this group
       group.getTests().forEach((test) => {
-        let resultText = 'ok';
+        let resultText = '';
         let resultColor = green;
         let resultSymbol = tick;
 
         if (test.requiresManualCheck()) {
-          resultText = 'please check manually for static return values and/or logical errors';
+          resultText = ' please check manually for static return values and/or logical errors';
           resultColor = yellow;
           resultSymbol = '?';
         } else if (!test.isSuccessful()) {
-          resultText = 'failed';
           resultColor = red;
           resultSymbol = cross;
         }
 
         const symbol = bold(resultColor(resultSymbol));
-        const warning = resultSymbol === '?' ? yellow(' WARNING:') : '';
 
-        printer(`    ${symbol} ${test.getName()}${blue(':')}${warning} ${resultText}`);
+        printer(`    ${symbol} ${test.getName()}${resultColor(resultText)}`);
       });
     });
 
@@ -127,7 +125,7 @@ export default class Printer {
     }
 
     // search for tests that do not belong to any group
-    if (this.run.getUngroupedTests().length > 0) {
+    if (this.run.hasExtraTest() && this.run.getUngroupedTests().length > 0) {
       this.printTestWarning(
         'The following tests do not belong to a group and were ignored:',
         this.run.getUngroupedTests(),

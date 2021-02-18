@@ -7,7 +7,7 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ Foo: ok
+    ✔ Foo
 
 Info: The detailed test and error information is visible above the result summary.
 
@@ -23,6 +23,7 @@ describe('ungrouped tests', () => {
     run.addGroup(new Group('A.+', 1, Strategy.Add));
 
     run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('AFoo', 'Foo', true, true);
     run.recordTest('BFoo', 'Foo', false, true);
     run.recordTest('BBar', 'Bar', false, true);
 

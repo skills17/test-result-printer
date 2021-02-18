@@ -7,16 +7,16 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 0/3 points
-    ✔ Foo: ok
-    ✖ Bar: failed
-    ✖ Required: failed
+    ✔ Foo
+    ✖ Bar
+    ✖ Required
   B.+: 0/2 points
-    ✔ Foo: ok
-    ✔ Bar: ok
-    ✖ Required: failed
+    ✔ Foo
+    ✔ Bar
+    ✖ Required
   C.+: 2/2 points
-    ✔ Foo: ok
-    ✔ Required: ok
+    ✔ Foo
+    ✔ Required
 
 Info: The detailed test and error information is visible above the result summary.
 `;

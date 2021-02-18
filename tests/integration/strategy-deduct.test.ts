@@ -7,29 +7,29 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 2/3 points
-    ✔ Foo: ok
-    ✖ Bar: failed
-    ✔ Baz: ok
+    ✔ Foo
+    ✖ Bar
+    ✔ Baz
   B.+: 1/2 points
-    ✔ Foo: ok
-    ✖ Bar: failed
-    ✔ Baz: ok
+    ✔ Foo
+    ✖ Bar
+    ✔ Baz
   C.+: 0/2 points
-    ✖ Foo: failed
-    ✖ Bar: failed
-    ✖ Baz: failed
+    ✖ Foo
+    ✖ Bar
+    ✖ Baz
   D.+: 1/1.5 points
-    ✔ Foo: ok
-    ✖ Bar: failed
-    ✔ Baz: ok
+    ✔ Foo
+    ✖ Bar
+    ✔ Baz
   E.+: 0.5/2 points
-    ✔ Foo: ok
-    ✖ MorePoints: failed
-    ✖ Bar: failed
-    ✔ Baz: ok
+    ✔ Foo
+    ✖ MorePoints
+    ✖ Bar
+    ✔ Baz
   F.+: 2/2 points
-    ✔ Foo: ok
-    ✔ Bar: ok
+    ✔ Foo
+    ✔ Bar
 
 Info: The detailed test and error information is visible above the result summary.
 `;
