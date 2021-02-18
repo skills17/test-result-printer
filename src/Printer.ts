@@ -90,7 +90,7 @@ export default class Printer {
       .getGroups()
       .filter((group) => !group.hasTests())
       .map((group) => group.getDisplayName());
-    if (emptyGroups.length > 0) {
+    if (this.run.hasExtraTest() && emptyGroups.length > 0) {
       this.printTestWarning('The following groups do not have any test:', emptyGroups, printer);
     }
 
@@ -125,7 +125,7 @@ export default class Printer {
     }
 
     // search for tests that do not belong to any group
-    if (this.run.hasExtraTest() && this.run.getUngroupedTests().length > 0) {
+    if (this.run.getUngroupedTests().length > 0) {
       this.printTestWarning(
         'The following tests do not belong to a group and were ignored:',
         this.run.getUngroupedTests(),

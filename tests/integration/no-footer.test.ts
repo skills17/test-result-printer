@@ -9,8 +9,8 @@ Summary:
   A.+: 1/1 point
     ✔ Foo
 
-WARNING: The following groups do not have any test:
-  - B.+
+WARNING: The following tests do not belong to a group and were ignored:
+  - BFoo
 `;
 
 describe('no footer', () => {
@@ -18,9 +18,9 @@ describe('no footer', () => {
     const run = new TestRun();
 
     run.addGroup(new Group('A.+', 1, Strategy.Add));
-    run.addGroup(new Group('B.+', 1, Strategy.Add));
 
     run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('BFoo', 'Foo', false, true);
 
     const log = jest.fn();
 

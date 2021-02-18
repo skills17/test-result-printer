@@ -12,9 +12,6 @@ Summary:
     ✔ Foo
 
 Info: The detailed test and error information is visible above the result summary.
-
-WARNING: The following groups do not have any test:
-  - B.+
 `;
 
 describe('empty groups', () => {
