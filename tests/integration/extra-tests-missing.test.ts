@@ -7,29 +7,29 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ AFoo: ok
+    ✔ Foo: ok
   B.+: 2/3 points
-    ✔ BFoo: ok
-    ✔ BBar: ok
-    ✖ BBaz: failed
+    ✔ Foo: ok
+    ✔ Bar: ok
+    ✖ Baz: failed
   C.+: 2/2 points
-    ✔ CFoo: ok
-    ✔ CBar: ok
+    ✔ Foo: ok
+    ✔ Bar: ok
   D.+: 0/1 point
-    ✖ DFoo: failed
+    ✖ Foo: failed
   E.+: 1/2 points
-    ✔ EFoo: ok
-    ✖ EBar: failed
+    ✔ Foo: ok
+    ✖ Bar: failed
   F.+: 1/2 points
-    ✔ FFoo: ok
-    ✖ FBar: failed
+    ✔ Foo: ok
+    ✖ Bar: failed
 
 Info: The detailed test and error information is visible above the result summary.
 
 WARNING: The following tests do NOT have extra tests and so can NOT be checked for possible cheating:
-  - E.+ > EFoo
-  - F.+ > FFoo
-  - F.+ > FBar
+  - E.+ > Foo
+  - F.+ > Foo
+  - F.+ > Bar
 `;
 
 describe('extra tests missing', () => {
@@ -44,27 +44,27 @@ describe('extra tests missing', () => {
     run.addGroup(new Group('F.+', 1, Strategy.Add));
 
     // normal tests
-    run.recordTest('AFoo', false, true);
-    run.recordTest('BFoo', false, true);
-    run.recordTest('BBar', false, true);
-    run.recordTest('BBaz', false, false);
-    run.recordTest('CFoo', false, true);
-    run.recordTest('CBar', false, true);
-    run.recordTest('DFoo', false, false);
-    run.recordTest('EFoo', false, true); // this does not have an extra test and should trigger a warning
-    run.recordTest('EBar', false, false);
-    run.recordTest('FFoo', false, true); // this does not have an extra test and should trigger a warning
-    run.recordTest('FBar', false, false); // this does not have an extra test and should trigger a warning
+    run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('BFoo', 'Foo', false, true);
+    run.recordTest('BBar', 'Bar', false, true);
+    run.recordTest('BBaz', 'Baz', false, false);
+    run.recordTest('CFoo', 'Foo', false, true);
+    run.recordTest('CBar', 'Bar', false, true);
+    run.recordTest('DFoo', 'Foo', false, false);
+    run.recordTest('EFoo', 'Foo', false, true); // this does not have an extra test and should trigger a warning
+    run.recordTest('EBar', 'Bar', false, false);
+    run.recordTest('FFoo', 'Foo', false, true); // this does not have an extra test and should trigger a warning
+    run.recordTest('FBar', 'Bar', false, false); // this does not have an extra test and should trigger a warning
 
     // extra tests
-    run.recordTest('AFoo', true, true);
-    run.recordTest('BFoo', true, true);
-    run.recordTest('BBar', true, true);
-    run.recordTest('BBaz', true, false);
-    run.recordTest('CFoo', true, true);
-    run.recordTest('CBar', true, true);
-    run.recordTest('DFoo', true, true);
-    run.recordTest('EBar', true, true);
+    run.recordTest('AFoo', 'Foo', true, true);
+    run.recordTest('BFoo', 'Foo', true, true);
+    run.recordTest('BBar', 'Bar', true, true);
+    run.recordTest('BBaz', 'Baz', true, false);
+    run.recordTest('CFoo', 'Foo', true, true);
+    run.recordTest('CBar', 'Bar', true, true);
+    run.recordTest('DFoo', 'Foo', true, true);
+    run.recordTest('EBar', 'Bar', true, true);
 
     const log = jest.fn();
 

@@ -7,11 +7,11 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ AFoo: ok
+    ✔ Foo: ok
   BGroup::foo: 1/1 point
-    ✔ BFoo: ok
+    ✔ Foo: ok
   Last group: 1/1 point
-    ✔ CFoo: ok
+    ✔ Foo: ok
 
 Info: The detailed test and error information is visible above the result summary.
 `;
@@ -24,9 +24,9 @@ describe('display name', () => {
     run.addGroup(new Group('B.+', 1, Strategy.Add, 'BGroup::foo'));
     run.addGroup(new Group('C.+', 1, Strategy.Add, 'Last group'));
 
-    run.recordTest('AFoo', false, true);
-    run.recordTest('BFoo', false, true);
-    run.recordTest('CFoo', false, true);
+    run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('BFoo', 'Foo', false, true);
+    run.recordTest('CFoo', 'Foo', false, true);
 
     const log = jest.fn();
 

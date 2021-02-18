@@ -7,9 +7,9 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ AFoo: ok
+    ✔ Foo: ok
   C.+: 1/1 point
-    ✔ CFoo: ok
+    ✔ Foo: ok
 
 Info: The detailed test and error information is visible above the result summary.
 
@@ -25,8 +25,8 @@ describe('empty groups', () => {
     run.addGroup(new Group('B.+', 1, Strategy.Add));
     run.addGroup(new Group('C.+', 1, Strategy.Add));
 
-    run.recordTest('AFoo', false, true);
-    run.recordTest('CFoo', false, true);
+    run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('CFoo', 'Foo', false, true);
 
     const log = jest.fn();
 

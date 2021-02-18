@@ -7,7 +7,7 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ AFoo: ok
+    ✔ Foo: ok
 
 WARNING: The following groups do not have any test:
   - B.+
@@ -20,7 +20,7 @@ describe('no footer', () => {
     run.addGroup(new Group('A.+', 1, Strategy.Add));
     run.addGroup(new Group('B.+', 1, Strategy.Add));
 
-    run.recordTest('AFoo', false, true);
+    run.recordTest('AFoo', 'Foo', false, true);
 
     const log = jest.fn();
 

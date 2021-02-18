@@ -7,19 +7,19 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 1/1 point
-    ✔ AFoo: ok
+    ✔ Foo: ok
   B.+: 2/3 points
-    ✔ BFoo: ok
-    ✔ BBar: ok
-    ✖ BBaz: failed
+    ✔ Foo: ok
+    ✔ Bar: ok
+    ✖ Baz: failed
   C.+: 2/2 points
-    ✔ CFoo: ok
-    ✔ CBar: ok
+    ✔ Foo: ok
+    ✔ Bar: ok
   D.+: 1/1 point [manual check required]
-    ? DFoo: WARNING: please check manually for static return values and/or logical errors
+    ? Foo: WARNING: please check manually for static return values and/or logical errors
   E.+: 2/2 points [manual check required]
-    ? EFoo: WARNING: please check manually for static return values and/or logical errors
-    ✔ EBar: ok
+    ? Foo: WARNING: please check manually for static return values and/or logical errors
+    ✔ Bar: ok
 
 Info: The detailed test and error information is visible above the result summary.
 `;
@@ -35,26 +35,26 @@ describe('extra tests fail', () => {
     run.addGroup(new Group('E.+', 1, Strategy.Add));
 
     // normal tests
-    run.recordTest('AFoo', false, true);
-    run.recordTest('BFoo', false, true);
-    run.recordTest('BBar', false, true);
-    run.recordTest('BBaz', false, false);
-    run.recordTest('CFoo', false, true);
-    run.recordTest('CBar', false, true);
-    run.recordTest('DFoo', false, true); // extra test for this fails and should trigger a warning
-    run.recordTest('EFoo', false, true); // extra test for this fails and should trigger a warning
-    run.recordTest('EBar', false, true);
+    run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('BFoo', 'Foo', false, true);
+    run.recordTest('BBar', 'Bar', false, true);
+    run.recordTest('BBaz', 'Baz', false, false);
+    run.recordTest('CFoo', 'Foo', false, true);
+    run.recordTest('CBar', 'Bar', false, true);
+    run.recordTest('DFoo', 'Foo', false, true); // extra test for this fails and should trigger a warning
+    run.recordTest('EFoo', 'Foo', false, true); // extra test for this fails and should trigger a warning
+    run.recordTest('EBar', 'Bar', false, true);
 
     // extra tests
-    run.recordTest('AFoo', true, true);
-    run.recordTest('BFoo', true, true);
-    run.recordTest('BBar', true, true);
-    run.recordTest('BBaz', true, false);
-    run.recordTest('CFoo', true, true);
-    run.recordTest('CBar', true, true);
-    run.recordTest('DFoo', true, false);
-    run.recordTest('EFoo', true, false);
-    run.recordTest('EBar', true, true);
+    run.recordTest('AFoo', 'Foo', true, true);
+    run.recordTest('BFoo', 'Foo', true, true);
+    run.recordTest('BBar', 'Bar', true, true);
+    run.recordTest('BBaz', 'Baz', true, false);
+    run.recordTest('CFoo', 'Foo', true, true);
+    run.recordTest('CBar', 'Bar', true, true);
+    run.recordTest('DFoo', 'Foo', true, false);
+    run.recordTest('EFoo', 'Foo', true, false);
+    run.recordTest('EBar', 'Bar', true, true);
 
     const log = jest.fn();
 

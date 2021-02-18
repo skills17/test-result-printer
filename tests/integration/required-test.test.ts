@@ -7,16 +7,16 @@ const expectedOutput = `------------       RESULT       ------------
 
 Summary:
   A.+: 0/3 points
-    ✔ AFoo: ok
-    ✖ ABar: failed
-    ✖ ARequired: failed
+    ✔ Foo: ok
+    ✖ Bar: failed
+    ✖ Required: failed
   B.+: 0/2 points
-    ✔ BFoo: ok
-    ✔ BBar: ok
-    ✖ BRequired: failed
+    ✔ Foo: ok
+    ✔ Bar: ok
+    ✖ Required: failed
   C.+: 2/2 points
-    ✔ CFoo: ok
-    ✔ CRequired: ok
+    ✔ Foo: ok
+    ✔ Required: ok
 
 Info: The detailed test and error information is visible above the result summary.
 `;
@@ -26,23 +26,23 @@ describe('required test', () => {
     const run = new TestRun();
 
     const groupA = new Group('A.+', 1, Strategy.Add);
-    groupA.addOverride(new Override('ARequired', true));
+    groupA.addOverride(new Override('Required', true));
     run.addGroup(groupA);
     const groupB = new Group('B.+', 1, Strategy.Deduct, undefined, 2);
-    groupB.addOverride(new Override('BRequired', true));
+    groupB.addOverride(new Override('Required', true));
     run.addGroup(groupB);
     const groupC = new Group('C.+', 1, Strategy.Add);
-    groupC.addOverride(new Override('CRequired', true));
+    groupC.addOverride(new Override('Required', true));
     run.addGroup(groupC);
 
-    run.recordTest('AFoo', false, true);
-    run.recordTest('ABar', false, false);
-    run.recordTest('ARequired', false, false); // because this fails and is required, group A should award 0 points
-    run.recordTest('BFoo', false, true);
-    run.recordTest('BBar', false, true);
-    run.recordTest('BRequired', false, false); // because this fails and is required, group B should award 0 points
-    run.recordTest('CFoo', false, true);
-    run.recordTest('CRequired', false, true);
+    run.recordTest('AFoo', 'Foo', false, true);
+    run.recordTest('ABar', 'Bar', false, false);
+    run.recordTest('ARequired', 'Required', false, false); // because this fails and is required, group A should award 0 points
+    run.recordTest('BFoo', 'Foo', false, true);
+    run.recordTest('BBar', 'Bar', false, true);
+    run.recordTest('BRequired', 'Required', false, false); // because this fails and is required, group B should award 0 points
+    run.recordTest('CFoo', 'Foo', false, true);
+    run.recordTest('CRequired', 'Required', false, true);
 
     const log = jest.fn();
 

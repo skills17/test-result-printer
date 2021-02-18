@@ -4,7 +4,7 @@ import Printer from '../../src/Printer';
 import { mockConsoleToString } from '../helpers';
 
 const expectedOutput = `  A.+: 1/1 point
-    ✔ AFoo: ok
+    ✔ Foo: ok
 
 Info: The detailed test and error information is visible above the result summary.
 `;
@@ -15,7 +15,7 @@ describe('no header', () => {
 
     run.addGroup(new Group('A.+', 1, Strategy.Add));
 
-    run.recordTest('AFoo', false, true);
+    run.recordTest('AFoo', 'Foo', false, true);
 
     const log = jest.fn();
 
