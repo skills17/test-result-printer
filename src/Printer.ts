@@ -12,10 +12,12 @@ export default class Printer {
     printer = console.log,
     printHeader = true,
     printFooter = true,
+    printPoints = true,
   }: {
     printer?: (...data: string[]) => void;
     printHeader?: boolean;
     printFooter?: boolean;
+    printPoints?: boolean;
   } = {}): void {
     // print header
     if (printHeader) {
@@ -49,7 +51,11 @@ export default class Printer {
         manualCheck = bold(yellow(' [manual check required]'));
       }
 
-      printer(`  ${groupName}${blue(':')} ${pointsColor(pointsText)}${manualCheck}`);
+      if (printPoints) {
+        printer(`  ${groupName}${blue(':')} ${pointsColor(pointsText)}${manualCheck}`);
+      } else {
+        printer(`  ${groupName}${manualCheck}`);
+      }
 
       // print all tests of this group
       group.getTests().forEach((test) => {

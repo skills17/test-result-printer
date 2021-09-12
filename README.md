@@ -41,6 +41,9 @@ Additionally, the `print` method supports an optional options parameter:
 
   // if the footer should be printed or not (defaults to false)
   printFooter?: boolean;
+
+  // if points should be printed or not (defaults to true)
+  printPoints?: boolean;
 }
 ```
 
