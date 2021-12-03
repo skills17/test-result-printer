@@ -1,1 +1,1 @@
-export { default } from './Printer';
+export { default } from './Printer'; // eslint-disable-line no-restricted-exports
