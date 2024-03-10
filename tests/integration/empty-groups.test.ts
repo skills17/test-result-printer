@@ -11,6 +11,8 @@ Summary:
   C.+: 1/1 point
     ✔ Foo
 
+Total: 2/2 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 

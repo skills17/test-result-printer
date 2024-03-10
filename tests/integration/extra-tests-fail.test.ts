@@ -21,6 +21,8 @@ Summary:
     ? Foo please check manually for static return values and/or logical errors
     ✔ Bar
 
+Total: 8/9 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 

@@ -31,6 +31,8 @@ Summary:
     ✔ Foo
     ✔ Bar
 
+Total: 6.5/12.5 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 

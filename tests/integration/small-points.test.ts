@@ -28,6 +28,8 @@ Summary:
     ✔ 19
     ✔ 20
 
+Total: 1.9/2 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 

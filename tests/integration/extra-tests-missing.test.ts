@@ -24,6 +24,8 @@ Summary:
     ✔ Foo
     ✖ Bar
 
+Total: 7/11 points
+
 Info: The detailed test and error information is visible above the result summary.
 
 WARNING: The following tests do NOT have extra tests and so can NOT be checked for possible cheating:

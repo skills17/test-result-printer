@@ -21,6 +21,8 @@ Summary:
     ✖ Foo
     ✖ Bar
 
+Total: 5/9 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 
