@@ -9,6 +9,8 @@ Summary:
   A.+: 1/1 point
     ✔ Foo
 
+Total: 1/1 point
+
 Info: The detailed test and error information is visible above the result summary.
 
 WARNING: The following tests do not belong to a group and were ignored:

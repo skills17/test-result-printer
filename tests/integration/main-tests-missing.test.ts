@@ -20,6 +20,8 @@ Summary:
     ✔ Foo
     ✖ Bar
 
+Total: 5/8 points
+
 Info: The detailed test and error information is visible above the result summary.
 
 WARNING: The following extra tests do not belong to a main test and were ignored:

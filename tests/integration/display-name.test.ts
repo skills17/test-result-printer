@@ -13,6 +13,8 @@ Summary:
   Last group: 1/1 point
     ✔ Foo
 
+Total: 3/3 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 

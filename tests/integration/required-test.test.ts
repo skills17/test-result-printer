@@ -18,6 +18,8 @@ Summary:
     ✔ Foo
     ✔ Required
 
+Total: 2/7 points
+
 Info: The detailed test and error information is visible above the result summary.
 `;
 

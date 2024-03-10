@@ -1,5 +1,5 @@
-import { bold, underline, black, blue, bgGreen, green, yellow, red } from 'chalk';
-import { tick, cross } from 'figures';
+import { bgGreen, black, blue, bold, green, red, underline, yellow } from 'chalk';
+import { cross, tick } from 'figures';
 import { TestRun } from '@skills17/test-result';
 
 export default class Printer {
@@ -36,16 +36,8 @@ export default class Printer {
       const maxPoints = group.getMaxPoints();
       const groupName = bold(underline(group.getDisplayName()));
       const pointsText = `${points}/${maxPoints} point${maxPoints !== 1 ? 's' : ''}`;
-      let pointsColor = green;
+      const pointsColor = this.getPointsColor(points, maxPoints);
       let manualCheck = '';
-
-      if (points < maxPoints) {
-        if (points > 0) {
-          pointsColor = yellow;
-        } else {
-          pointsColor = red;
-        }
-      }
 
       if (group.requiresManualCheck()) {
         manualCheck = bold(yellow(' [manual check required]'));
@@ -80,6 +72,9 @@ export default class Printer {
 
     // print footer
     if (printFooter) {
+      if (printPoints) {
+        this.printTotal(printer);
+      }
       printer(
         `\n${blue('Info:')}`,
         'The detailed test and error information is visible above the result summary.',
@@ -88,6 +83,35 @@ export default class Printer {
 
     this.printWarnings(printer);
     printer();
+  }
+
+  private getPointsColor(points: number, maxPoints: number) {
+    if (points > 0) {
+      return points === maxPoints ? green : yellow;
+    }
+    return red;
+  }
+
+  private printTotal(printer: (...data: string[]) => void) {
+    const totalPoints = this.run
+      .getGroups()
+      .reduce((groupPoints, group) => groupPoints + group.getPoints(), 0);
+    const totalMaxPoints = this.run
+      .getGroups()
+      .reduce((groupPoints, group) => groupPoints + group.getMaxPoints(), 0);
+
+    const totalPointsRounded = Math.round(totalPoints * 100) / 100;
+    const totalMaxPointsRounded = Math.round(totalMaxPoints * 100) / 100;
+
+    const totalPointsColor = this.getPointsColor(totalPoints, totalMaxPoints);
+
+    printer(
+      `\nTotal: ${totalPointsColor(
+        `${totalPointsRounded}/${totalMaxPointsRounded} point${
+          totalMaxPointsRounded !== 1 ? 's' : ''
+        }`,
+      )}`,
+    );
   }
 
   private printWarnings(printer: (...data: string[]) => void): void {
